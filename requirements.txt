@@ -1,0 +1,41 @@
+# ============================================================
+# RetailPulse — Python dependencies
+# Install with:  pip install -r requirements.txt
+# ============================================================
+
+# ---- Core data stack ---------------------------------------
+pandas>=2.1
+numpy>=1.26
+pyarrow>=15.0            # Parquet cache support (optional but recommended)
+
+# ---- Machine learning --------------------------------------
+scikit-learn>=1.4
+joblib>=1.3
+
+# ---- Visualisation -----------------------------------------
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.20
+
+# ---- Dashboard ---------------------------------------------
+streamlit>=1.35
+
+# ---- Forecasting -------------------------------------------
+# Prophet and statsmodels are optional: the pipeline automatically skips
+# those models when they are not installed and compared the remaining ones.
+prophet>=1.1
+statsmodels>=0.14
+
+# ---- Experiment tracking (optional) ------------------------
+# MLflow is optional; src/mlops/track_experiments.py degrades gracefully.
+mlflow>=2.12
+
+# ---- Excel / spreadsheet inputs ----------------------------
+openpyxl>=3.1
+
+# ---- Optional accelerators ---------------------------------
+# Not required for the pipeline. Uncomment if you want the tuned
+# gradient-boosting / explainability notebooks.
+# xgboost>=2.0
+# shap>=0.45
+# optuna>=3.5

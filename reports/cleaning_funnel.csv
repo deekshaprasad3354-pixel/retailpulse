@@ -1,0 +1,8 @@
+step,rows_remaining,rows_removed
+raw rows,1033036,0
+drop exact duplicates,1033036,0
+drop missing CustomerID,797885,235151
+drop cancellations (C*),779495,18390
+drop Quantity <= 0,779495,0
+drop Price <= 0,779425,70
+drop non-product stock codes,776594,2831

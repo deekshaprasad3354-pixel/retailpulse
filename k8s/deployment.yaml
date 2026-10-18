@@ -1,0 +1,112 @@
+# ============================================================
+# RetailPulse — Kubernetes deployment
+# Apply with:  kubectl apply -f k8s/deployment.yaml
+# ============================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retailpulse-dashboard
+  labels:
+    app: retailpulse
+    component: dashboard
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: retailpulse
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: retailpulse
+    spec:
+      containers:
+        - name: dashboard
+          image: retailpulse:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8501
+          env:
+            - name: STREAMLIT_SERVER_HEADLESS
+              value: "true"
+            - name: STREAMLIT_SERVER_ADDRESS
+              value: "0.0.0.0"
+            - name: STREAMLIT_BROWSER_GATHER_USAGE_STATS
+              value: "false"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "2Gi"
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: http
+            initialDelaySeconds: 40
+            periodSeconds: 20
+          volumeMounts:
+            - name: processed-data
+              mountPath: /app/data/processed
+              readOnly: true
+      volumes:
+        - name: processed-data
+          persistentVolumeClaim:
+            claimName: retailpulse-data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: retailpulse-data
+spec:
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: retailpulse-dashboard
+  labels:
+    app: retailpulse
+spec:
+  type: ClusterIP
+  selector:
+    app: retailpulse
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: retailpulse-dashboard
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: retailpulse-dashboard
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
