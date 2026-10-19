@@ -1,0 +1,5 @@
+model,auc,ks,lift_top10,precision,recall,f1,accuracy
+Gradient Boosting,0.8139,0.4898,1.636,0.7541,0.814,0.7829,0.7451
+Logistic Regression,0.8079,0.4863,1.636,0.7904,0.7318,0.76,0.739
+Random Forest,0.8063,0.4838,1.609,0.7622,0.7992,0.7803,0.7458
+Baseline (majority class),0.5,0.0,1.0,0.5647,1.0,0.7218,0.5647

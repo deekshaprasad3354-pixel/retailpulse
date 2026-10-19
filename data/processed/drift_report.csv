@@ -1,0 +1,8 @@
+feature,reference_mean,current_mean,mean_change_pct,psi,psi_verdict,ks_statistic,ks_p_value,drift_detected
+AvgOrderValue,377.25,391.97,3.9,0.056,stable,0.0774,0.208993,False
+Units,14698.98,13715.74,-6.69,0.0462,stable,0.0481,0.775982,False
+Revenue,22894.5,23298.64,1.77,0.0422,stable,0.0504,0.725178,False
+LineItems,1057.9,1043.86,-1.33,0.0401,stable,0.0608,0.488854,False
+UnitsPerOrder,246.25,231.27,-6.08,0.0327,stable,0.0497,0.741532,False
+Orders,50.15,48.89,-2.52,0.0175,stable,0.0397,0.927383,False
+Customers,44.56,44.42,-0.32,0.013,stable,0.0292,0.997176,False

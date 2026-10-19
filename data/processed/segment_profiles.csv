@@ -1,0 +1,7 @@
+Segment,Customers,AvgRecency,AvgFrequency,AvgMonetary,TotalMonetary,AvgRFMScore,CustomerSharePct,RevenueSharePct,RecommendedAction
+Champions,1284,20.26,17.04,9056.03,11627939.89,13.93,21.9,68.1,"Reward loyalty: early access, VIP tiers, referral incentives."
+Loyal Customers,1130,73.11,5.9,2211.65,2499159.39,11.08,19.3,14.6,Upsell and cross-sell; enrol in a subscription or loyalty scheme.
+Need Attention,1139,249.24,3.77,1238.86,1411060.15,8.04,19.5,8.3,Re-engagement email with a time-limited offer.
+Dormant,1168,542.79,1.95,684.29,799245.25,4.88,20.0,4.7,"Low-cost reactivation only, or suppress to protect margin."
+New / Promising,831,64.3,1.42,742.77,617240.27,7.31,14.2,3.6,"Onboarding journey, second-purchase discount, product education."
+At Risk,300,315.88,1.0,379.74,113923.02,4.63,5.1,0.7,Win-back campaign; ask why they left; offer a strong incentive.

@@ -1,0 +1,4 @@
+model,folds,mae,rmse,mape,mape_std,wape,bias,r2
+Holt-Winters (damped),4,14911.272,21954.323,33.616,7.951,43.903,4033.788,0.112
+Seasonal Naive,4,15263.58,21997.748,49.683,13.213,46.873,3490.61,0.041
+Linear (trend + seasonality),4,20292.332,26438.018,49.964,4.928,60.548,2723.835,-0.365

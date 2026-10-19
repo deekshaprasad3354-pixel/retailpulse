@@ -1,0 +1,13 @@
+fold,model,granularity,mae,rmse,mape,smape,wape,r2,bias
+1,Seasonal Naive,weekly,30947.58,32792.33,21.059,20.145,19.719,0.0756,1107.78
+1,Linear (trend + seasonality),weekly,20528.8,27335.33,12.671,13.216,13.081,0.3577,10540.17
+1,Holt-Winters (damped),weekly,31067.0,38539.16,19.101,20.159,19.796,-0.2768,16012.38
+2,Seasonal Naive,weekly,92846.74,109315.49,35.07,45.444,37.598,-3.5086,90009.49
+2,Linear (trend + seasonality),weekly,65330.82,79157.96,26.802,27.908,26.455,-1.3641,6266.74
+2,Holt-Winters (damped),weekly,69390.47,84633.92,25.964,29.976,28.099,-1.7025,36948.38
+3,Seasonal Naive,weekly,46106.35,48076.66,18.628,18.76,18.732,-10.1262,-814.43
+3,Linear (trend + seasonality),weekly,45577.75,58312.36,18.093,16.04,18.517,-15.3682,-36008.75
+3,Holt-Winters (damped),weekly,5988.45,7985.77,2.443,2.491,2.433,0.693,4190.94
+4,Seasonal Naive,weekly,49878.8,74203.53,14.326,16.459,17.132,-0.2653,45013.49
+4,Linear (trend + seasonality),weekly,84608.41,115608.27,25.296,31.526,29.06,-2.0713,79331.54
+4,Holt-Winters (damped),weekly,61774.86,97764.67,17.374,21.312,21.218,-1.1963,56133.31

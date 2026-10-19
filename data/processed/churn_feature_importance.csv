@@ -1,0 +1,37 @@
+feature,importance,model,importance_pct
+Recency,0.39062,Gradient Boosting,39.06
+ActiveMonths,0.11562,Gradient Boosting,11.56
+Monetary,0.10833,Gradient Boosting,10.83
+PurchaseRate,0.10729,Gradient Boosting,10.73
+UniqueProducts,0.10104,Gradient Boosting,10.1
+Frequency,0.06354,Gradient Boosting,6.35
+RevenueTrend,0.0375,Gradient Boosting,3.75
+Units,0.02396,Gradient Boosting,2.4
+TenureDays,0.02396,Gradient Boosting,2.4
+AvgOrderValue,0.01771,Gradient Boosting,1.77
+AvgUnitsPerOrder,0.01042,Gradient Boosting,1.04
+ReturnRate,0.0,Gradient Boosting,0.0
+ActiveMonths,0.8289,Logistic Regression (|coef|),31.93
+Recency,0.73145,Logistic Regression (|coef|),28.18
+UniqueProducts,0.38946,Logistic Regression (|coef|),15.0
+TenureDays,0.29199,Logistic Regression (|coef|),11.25
+PurchaseRate,0.09523,Logistic Regression (|coef|),3.67
+AvgOrderValue,0.06691,Logistic Regression (|coef|),2.58
+AvgUnitsPerOrder,0.05384,Logistic Regression (|coef|),2.07
+RevenueTrend,0.05182,Logistic Regression (|coef|),2.0
+Frequency,0.04276,Logistic Regression (|coef|),1.65
+Monetary,0.03356,Logistic Regression (|coef|),1.29
+Units,0.00974,Logistic Regression (|coef|),0.38
+ReturnRate,0.0,Logistic Regression (|coef|),0.0
+Recency,0.0,Random Forest,
+Frequency,0.0,Random Forest,
+Monetary,0.0,Random Forest,
+Units,0.0,Random Forest,
+UniqueProducts,0.0,Random Forest,
+AvgOrderValue,0.0,Random Forest,
+AvgUnitsPerOrder,0.0,Random Forest,
+TenureDays,0.0,Random Forest,
+PurchaseRate,0.0,Random Forest,
+ActiveMonths,0.0,Random Forest,
+RevenueTrend,0.0,Random Forest,
+ReturnRate,0.0,Random Forest,

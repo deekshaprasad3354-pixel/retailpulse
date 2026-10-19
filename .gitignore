@@ -6,17 +6,20 @@ __pycache__/
 venv/
 env/
 
-# ---- Data (large, regenerable from source) ------------------
+# ---- Data ---------------------------------------------------
+# Raw multi-megabyte source workbooks are excluded
 data/raw/*
 !data/raw/.gitkeep
+# Exclude raw interim csv/gz, but track optimized clean parquet for fast dashboard loading
 data/interim/*
 !data/interim/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
+!data/interim/transactions_clean.parquet
+
+# Include processed pipeline outputs so Streamlit Cloud can render immediately
+!data/processed/*
 
 # ---- Model artefacts and runs -------------------------------
-models/*
-!models/.gitkeep
+!models/*.pkl
 mlruns/
 mlflow/
 

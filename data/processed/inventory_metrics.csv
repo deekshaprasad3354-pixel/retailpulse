@@ -1,0 +1,3 @@
+policy,fill_rate_pct,stockout_days,total_days,units_lost,orders_placed,avg_closing_stock,avg_holding_value,annual_holding_cost,annual_ordering_cost,service_level_achieved,annual_total_cost
+naive,90.56,66,604,991177.0,77,92251.0,97486.38,11782.29,1163.29,89.4,12945.58
+optimised,98.48,12,604,159328.0,87,146556.7,154874.04,18718.22,1314.36,98.18,20032.58

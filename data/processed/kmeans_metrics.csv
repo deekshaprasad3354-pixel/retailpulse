@@ -1,0 +1,2 @@
+k,inertia,silhouette,calinski_harabasz,davies_bouldin,cluster1_customers,cluster1_avg_monetary,cluster1_revenue_share_pct,cluster2_customers,cluster2_avg_monetary,cluster2_revenue_share_pct,cluster3_customers,cluster3_avg_monetary,cluster3_revenue_share_pct,cluster4_customers,cluster4_avg_monetary,cluster4_revenue_share_pct
+4,5196.89,0.5794,4635.86,0.7551,4,420765.31,9.9,38,76985.82,17.1,3830,2878.51,64.6,1980,724.93,8.4

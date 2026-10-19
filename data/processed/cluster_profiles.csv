@@ -1,0 +1,5 @@
+Cluster,ClusterName,Customers,AvgRecency,AvgFrequency,AvgMonetary,AvgRFM
+0,Cluster 1,4,3.75,201.75,420765.31,15.0
+1,Cluster 2,38,24.74,99.05,76985.82,14.58
+2,Cluster 3,3830,67.53,7.22,2878.51,10.71
+3,Cluster 4,1980,462.16,2.21,724.93,5.61
