@@ -133,6 +133,12 @@ def apply_theme() -> None:
     background: #F8FAFC; border-left: 4px solid {CYAN}; border-radius: 8px;
     padding: 12px 16px; font-size: 0.85rem; color: #334155; line-height: 1.55;
   }}
+  .rp-note code {{
+    background: #E2E8F0 !important; color: #0F172A !important;
+    padding: 2px 7px !important; border-radius: 5px !important;
+    font-size: 0.82rem !important; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-weight: 600 !important; border: 1px solid {BORDER} !important;
+  }}
   .rp-badge {{
     display: inline-block; padding: 3px 10px; border-radius: 999px;
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;

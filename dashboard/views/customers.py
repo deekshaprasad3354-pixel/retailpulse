@@ -170,9 +170,14 @@ def render() -> None:
 
         # actionable list — the output a retention team actually uses
         section("Retention worklist", "highest-value customers who are at risk")
+        if "Segment" not in high.columns and seg is not None and "Segment" in seg.columns:
+            high = high.merge(seg[["CustomerID", "Segment"]], on="CustomerID", how="left")
+
+        worklist_cols = [c for c in ["CustomerID", "Recency", "Frequency", "Monetary",
+                                     "ChurnProbability", "RiskTier", "Segment"]
+                         if c in high.columns]
         worklist = (high.sort_values("Monetary", ascending=False)
-                    [["CustomerID", "Recency", "Frequency", "Monetary",
-                      "ChurnProbability", "RiskTier", "Segment"]]
+                    [worklist_cols]
                     .head(200))
         st.dataframe(worklist, use_container_width=True, hide_index=True, height=340)
         st.download_button(

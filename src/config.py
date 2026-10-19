@@ -54,8 +54,19 @@ def _prefer_parquet() -> bool:
 
 USE_PARQUET = _prefer_parquet()
 
-TX_CACHE = INTERIM / ("transactions.parquet" if USE_PARQUET else "transactions.csv.gz")
-CLEAN_CACHE = INTERIM / ("transactions_clean.parquet" if USE_PARQUET else "transactions_clean.csv.gz")
+
+def _resolve_cache(stem: str) -> Path:
+    p_parquet = INTERIM / f"{stem}.parquet"
+    p_gz = INTERIM / f"{stem}.csv.gz"
+    if p_parquet.exists():
+        return p_parquet
+    if p_gz.exists():
+        return p_gz
+    return p_parquet if USE_PARQUET else p_gz
+
+
+TX_CACHE = _resolve_cache("transactions")
+CLEAN_CACHE = _resolve_cache("transactions_clean")
 
 # --------------------------------------------------------------------------
 # Business rules / data-quality thresholds

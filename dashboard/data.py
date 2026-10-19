@@ -76,7 +76,12 @@ def cluster_profiles() -> pd.DataFrame:
 
 @st.cache_data(show_spinner="Loading churn scores…")
 def churn_scores() -> pd.DataFrame:
-    return _csv(str(cfg.PROCESSED / "customer_churn.csv"))
+    df = _csv(str(cfg.PROCESSED / "customer_churn.csv"))
+    if df is not None and "Segment" not in df.columns:
+        seg = _csv(str(cfg.PROCESSED / "customer_segments.csv"))
+        if seg is not None and "Segment" in seg.columns and "CustomerID" in seg.columns:
+            df = df.merge(seg[["CustomerID", "Segment"]], on="CustomerID", how="left")
+    return df
 
 
 @st.cache_data(show_spinner="Loading churn metrics…")
@@ -140,11 +145,18 @@ def drift_report() -> pd.DataFrame:
 
 @st.cache_data(show_spinner="Loading transactions…")
 def transactions() -> pd.DataFrame | None:
-    path = cfg.CLEAN_CACHE
+    path = cfg.INTERIM / "transactions_clean.parquet"
+    if not path.exists():
+        path = cfg.INTERIM / "transactions_clean.csv.gz"
+    if not path.exists():
+        path = cfg.CLEAN_CACHE
     if not path.exists():
         return None
     if path.suffix == ".parquet":
-        return pd.read_parquet(path)
+        return pd.read_parquet(path, columns=[
+            "Invoice", "StockCode", "Description", "Quantity", "Date", "Price",
+            "CustomerID", "Country", "Revenue",
+        ])
     return pd.read_csv(path, usecols=[
         "Invoice", "StockCode", "Description", "Quantity", "Date", "Price",
         "CustomerID", "Country", "Revenue",

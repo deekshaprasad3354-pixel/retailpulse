@@ -439,6 +439,14 @@ def main() -> None:
     for k, v in tiers.items():
         print(f"  {k:<12s} {int(v):>6,}  ({v / len(scored):.1%})")
 
+    seg_file = cfg.PROCESSED / "customer_segments.csv"
+    if seg_file.exists():
+        try:
+            seg_df = pd.read_csv(seg_file, usecols=["CustomerID", "Segment"])
+            scored = scored.merge(seg_df, on="CustomerID", how="left")
+        except Exception:
+            pass
+
     scored.to_csv(cfg.PROCESSED / "customer_churn.csv", index=False)
     comparison.to_csv(cfg.PROCESSED / "churn_model_comparison.csv", index=False)
     imp.to_csv(cfg.PROCESSED / "churn_feature_importance.csv", index=False)
